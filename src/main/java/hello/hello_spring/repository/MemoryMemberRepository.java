@@ -6,6 +6,7 @@ import java.util.*;
 
 public class MemoryMemberRepository implements MemberRepository{
 
+    // 아직 실제 database 연결 안했으니, HashMap에 정보 임시 저장용으로 만든 repository인 듯.
     private static Map<Long,Member> store =new HashMap<>();
     private static long sequence=0L;
 
