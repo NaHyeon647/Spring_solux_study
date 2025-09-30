@@ -19,16 +19,20 @@ public class MemberController {
         this.memberService=memberService;
     }
 
+    // get/postMapping(url) url이 같지만, get/post 방법이 다르기에 구분되어 선택됨
+    // 'url 조회 시' get
     @GetMapping("members/new")
     public String createForm(){
         return "members/createMemberForm";
     }
 
+    // 'url에서 정보 받을 때' post
     @PostMapping("/members/new")
     public String create(MemberForm form){
         Member member=new Member();
         member.setName(form.getName());
 
+        // MemberService에 정의된 join 메서드 (repository에 해당 member 객체 추가)
         memberService.join(member);
 
         return "redirect:/";
