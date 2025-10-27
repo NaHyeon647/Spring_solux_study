@@ -14,6 +14,8 @@ public class JpaMemberRepository implements MemberRepository{
         this.em = em; // EntityManager 줄임말: em
     }
 
+    // 여기에 @Transactional 추가 안해도 오류 안나는 이류
+    // Service에서 이미 @Transactional을 거쳤기 때문.
     @Override
     public Member save(Member member) {
         em.persist(member);

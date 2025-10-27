@@ -20,12 +20,14 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
-	implementation 'com.h2database:h2';
-//	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
-	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    runtimeOnly 'com.h2database:h2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+
+//    implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	// 추가한 코드 (jdbc를 data-jpa로 바꾼 것)
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 }
 
 tasks.named('test') {

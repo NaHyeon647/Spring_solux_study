@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+// JPA를 쓸려면 항상 Transactional이 있어야 한다. (Data 저장 or 변경 시)
 @Transactional
 public class MemberService {
     private final MemberRepository memberRepository;
@@ -21,6 +22,8 @@ public class MemberService {
 
     // 회원가입
     public Long join(Member member){
+        long start=System.currentTimeMillis();
+
         validateDuplicateMember(member);
         memberRepository.save(member);
         return member.getId();

@@ -10,33 +10,33 @@ import java.util.Optional;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 public class MemoryMemberRepositoryTest {
-    MemoryMemberRepository repository=new MemoryMemberRepository();
+    MemoryMemberRepository repository = new MemoryMemberRepository();
 
     @AfterEach
-    public void afterEach(){
+    public void afterEach() {
         repository.clearStore();
     }
 
     @Test
-    public void save(){
-        Member member =new Member();
+    public void save() {
+        Member member = new Member();
         member.setName("spring");
         repository.save(member);
-        Member result=repository.findById(member.getId()).get();
-        // Assertions.assertEquals(member,null);
-        assertThat(member).isEqualTo(null);
+        Member result = repository.findById(member.getId()).get();
+//        Assertions.assertEquals(member, null);
+        assertThat(result).isEqualTo(member);
     }
 
     @Test
-    public void findByName(){
-        Member member1=new Member();
+    public void findByName() {
+        Member member1 = new Member();
         member1.setName("spring");
         repository.save(member1);
 
-        Member member2=new Member();
+        Member member2 = new Member();
         member2.setName("spring");
         repository.save(member2);
 
-        Optional<Member>result=repository.findByName(("spring1"));
+        Optional<Member> result = repository.findByName(("spring1"));
     }
 }

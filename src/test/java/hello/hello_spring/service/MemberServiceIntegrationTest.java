@@ -15,7 +15,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 @SpringBootTest // 스프링 전체 컨텍스트 실행 (통합 테스트용)
-@Transactional   // 테스트 후 DB 롤백 처리
+@Transactional   // 테스트로 DB에 데이터 넣은 후, @test붙은 테스트 끝나면 롤백(넣었던 데이터 반영안되고 지워짐)해줌
 class MemberServiceIntegrationTest {
 
     @Autowired
